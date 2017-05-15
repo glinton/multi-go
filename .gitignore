@@ -1,0 +1,8 @@
+# ignore nanobox created gopath
+*/.gopath
+
+# ignore binaries
+admin/admin
+site/site
+store/store
+worker/worker

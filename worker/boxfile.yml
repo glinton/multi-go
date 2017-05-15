@@ -1,0 +1,13 @@
+run.config:
+  engine: golang
+
+  engine.config:
+    fetch: go get ./...
+    build: go build --ldflags="-s"
+    package: github.com/glinton/multi-example/worker
+
+data.cache:
+  image: nanobox/redis
+
+web.gola:
+  start: ./worker

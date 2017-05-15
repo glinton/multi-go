@@ -1,0 +1,29 @@
+run.config:
+  engine: none
+
+deploy.config:
+  extra_steps:
+    - cp -r /app/* $APP_DIR/
+
+data.cache:
+  image: nanobox/redis
+
+web.admin:
+  start: "/app/admin/admin /app/admin/app"
+  routes:
+    - '/admin'
+    - 'admin:/'
+
+web.site:
+  start: "/app/site/site /app/site/app"
+  routes:
+    - '/'
+
+web.store:
+  start: "/app/store/store /app/store/app"
+  routes:
+    - '/store'
+    - 'store:/'
+
+worker.worker:
+  start: "/app/worker/worker"
