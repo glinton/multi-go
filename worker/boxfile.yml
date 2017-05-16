@@ -9,5 +9,5 @@ run.config:
 data.cache:
   image: nanobox/redis
 
-web.gola:
+worker.worker:
   start: ./worker

@@ -1,16 +1,18 @@
+# Don't have nanobox automatically configure the environment
 run.config:
   engine: none
 
+# Copy the code into the proper location for `nanobox deploy`
 deploy.config:
   extra_steps:
-    - cp -r /app/* $APP_DIR/
+    - cp -r $CODE_DIR/* $APP_DIR/
 
 data.cache:
   image: nanobox/redis
 
 web.admin:
   start: "/app/admin/admin /app/admin/app"
-  routes:
+  routes: # Route `admin.myurl.com` and `myurl.com/admin` to this component
     - '/admin'
     - 'admin:/'
 
@@ -21,7 +23,7 @@ web.site:
 
 web.store:
   start: "/app/store/store /app/store/app"
-  routes:
+  routes: # Route `store.myurl.com` and `myurl.com/store` to this component
     - '/store'
     - 'store:/'
 

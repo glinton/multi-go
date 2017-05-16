@@ -10,5 +10,5 @@ deploy.config:
   extra_steps:
     - cp -r $CODE_DIR/app $APP_DIR/app # Move static files into 'build'
 
-web.gola:
+web.site:
   start: ./site /app/app

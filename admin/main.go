@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"strings"
 	"time"
@@ -77,8 +78,10 @@ func getShipped(rw http.ResponseWriter, req *http.Request) {
 		rw.Write([]byte(fmt.Sprintf("Failed to get shipped list - %s\n", err)))
 	}
 
+	pShipped, _ := json.Marshal(shipped)
+
 	rw.WriteHeader(http.StatusOK)
-	rw.Write([]byte(fmt.Sprintf("%q\n", shipped)))
+	rw.Write(append(pShipped, '\n'))
 }
 
 func getSoldHandler() http.Handler {
@@ -101,8 +104,11 @@ func getSold(rw http.ResponseWriter, req *http.Request) {
 		rw.Write([]byte(fmt.Sprintf("Failed to get sold list - %s\n", err)))
 	}
 
+	pSold, _ := json.Marshal(sold)
+
+
 	rw.WriteHeader(http.StatusOK)
-	rw.Write([]byte(fmt.Sprintf("%q\n", sold)))
+	rw.Write(append(pSold, '\n'))
 }
 
 // logging middleware

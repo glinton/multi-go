@@ -9,5 +9,5 @@ run.config:
 data.cache:
   image: nanobox/redis
 
-web.gola:
+web.admin:
   start: ./admin /app/app

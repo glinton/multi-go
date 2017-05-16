@@ -13,5 +13,5 @@ deploy.config:
 data.cache:
   image: nanobox/redis
 
-web.gola:
+web.store:
   start: ./store /app/app
